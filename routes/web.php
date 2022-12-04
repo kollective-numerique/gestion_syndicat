@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AgentController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('accueil');
+Route::get('/reglement', [HomeController::class, 'reglement'])->name('reglement');
+Route::get('/adhesion', [HomeController::class, 'adhesion'])->name('adhesion');
+Route::get('/login', [AgentController::class, 'index'])->name('agents.login');
