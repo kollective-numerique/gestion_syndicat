@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Agent extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nom', 'postnom', 'email', 'date', 'sexe', 'matricule', 'entreprise', 'fonction', 'localite', 'federation', 'password'];
+    public $timestamps = false;
 }

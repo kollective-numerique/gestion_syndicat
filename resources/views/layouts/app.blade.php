@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    @include('partials.vertical_navbar')
+    @include('partials.horizontal_navbar')
     <div class="container">
         @yield('content')
     </div>
