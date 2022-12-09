@@ -23,8 +23,12 @@
                             <td>{{ $membre->nom }}</td>
                             <td>{{ $membre->postnom }}</td>
                             <td>{{ $membre->entreprise }}</td>
-                            <td><a href="" class="btn btn-danger">Supprimer</a> | <a href=""
-                                    class="btn btn-primary">Modifier</a></td>
+                            <td>
+                                <a href="{{ route('agents.syndicat.delete', $membre->id) }}"
+                                    class="btn btn-danger">Supprimer</a> |
+                                <a href="{{ route('agents.syndicat.update', $membre->id) }}"
+                                    class="btn btn-primary">Modifier</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

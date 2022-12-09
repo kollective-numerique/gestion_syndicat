@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row" style="margin-top: 20px;">
-        <div class="col-md-6 offset-4">
+        <div class="col-md-6 offset-3">
             <form class="jumbotron" method="POST" action="{{ route('agents.login.post') }}">
                 @csrf
                 <div class="form-group">

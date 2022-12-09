@@ -64,4 +64,30 @@ class AgentController extends Controller
         $agent = $agent[0];
         return view('admin.change_pswd', ['agent' => $agent]);
     }
+    public function update_membres_syndicat(Request $request, $id)
+    {
+        $agent = $request->session()->get('agent');
+        $agent = $agent[0];
+        $agent_to_update = Agent::find($id);
+
+        if ($request->method() == 'POST') {
+            $updates = $request->all();
+            $agent_to_update->nom = $updates['nom'];
+            $agent_to_update->postnom = $updates['postnom'];
+            $agent_to_update->email = $updates['email'];
+            $agent_to_update->date = $updates['date'];
+            $agent_to_update->sexe = $updates['sexe'];
+            $agent_to_update->matricule = $updates['matricule'];
+            $agent_to_update->entreprise = $updates['entreprise'];
+            $agent_to_update->fonction = $updates['fonction'];
+            $agent_to_update->localite = $updates['localite'];
+            $agent_to_update->federation = $updates['federation'];
+            $agent_to_update->save();
+            return view('admin.update_syndicat', ['agent' => $agent, 'agentToUpdate' => $agent_to_update, 'notify' => true]);
+        }
+        return view('admin.update_syndicat', ['agent' => $agent, 'agentToUpdate' => $agent_to_update]);
+    }
+    public function delete_membres_syndicat(Request $request)
+    {
+    }
 }
