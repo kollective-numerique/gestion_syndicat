@@ -30,3 +30,5 @@ Route::get('/syndicats/membres/delete/{id}', [AgentController::class, 'delete_me
 Route::get('/syndicats/federation', [AgentController::class, 'membres_federation'])->middleware('IsLoggedIn')->name('agents.federation');
 Route::get('/syndicats/employe', [AgentController::class, 'membres_employe'])->middleware('IsLoggedIn')->name('agents.employe');
 Route::get('/agent/chnagePsw', [AgentController::class, 'change_pswd'])->middleware('IsLoggedIn')->name('agents.password');
+Route::get('/admin/add', [AgentController::class, 'add_responsable'])->middleware('IsLoggedIn')->name('agents.responsable.add');
+Route::post('/admin/add', [AgentController::class, 'add_responsable'])->middleware('IsLoggedIn')->name('agents.responsable.add.post');

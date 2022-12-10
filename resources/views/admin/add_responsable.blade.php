@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 
 @section('title', 'Adhesion')
 
@@ -8,7 +8,7 @@
             <h1>Saved</h1>
         @endisset
         <div class="col-md-12">
-            <form method="POST" action="{{ route('adhesion.save') }}">
+            <form method="POST" action="{{ route('agents.responsable.add.post') }}">
                 @csrf
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -39,42 +39,32 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    {{-- <div class="form-group col-md-4">
                         <label for="inputCity">Matricule</label>
                         <input type="text" name="matricule" class="form-control" id="inputCity">
-                    </div>
+                    </div> --}}
                     <div class="form-group col-md-4">
-                        <label for="inputZip">Entreprise</label>
+                        <label for="inputZip">Entreprise (laissez vide si pas nécessaire)</label>
                         <input type="text" name="entreprise" class="form-control" id="inputZip">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputState">Fonction</label>
                         <select name="fonction" id="inputState" class="form-control">
                             <option selected>Choose...</option>
-                            {{--  <option value="pds">Président de la base syndicale</option>
+                            <option value="pds">Président de la base syndicale</option>
                             <option value="pdf">Président de la féderation</option>
-                            <option value="drh">Directeur de ressource humaine</option> --}}
-                            <option value="adherant">Adhérant</option>
+                            <option value="drh">Directeur de ressource humaine</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    {{-- <div class="form-group col-md-6">
                         <label for="inputEmail4">Localité</label>
                         <input name="localite" type="text" class="form-control" placeholder="Localité">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Federation</label>
+                    </div> --}}
+                    <div class="form-group col-md-12">
+                        <label for="inputPassword4">Federation (laissez vide si pas nécessaire)</label>
                         <input name="federation" type="text" class="form-control" placeholder="Federation">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Par le présent formualaire, je déclare mon affiliation à L'UNTC et autorise mon employeur à
-                            retenir mensuellement sur ma rémuneration, la cotisation syndicale et à la verser à L'UNTC.
-                        </label>
                     </div>
                 </div>
                 <button type="submit" class="btn">Je m'inscris</button>

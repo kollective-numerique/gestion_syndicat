@@ -48,7 +48,7 @@ class AgentController extends Controller
     {
         $agent = $request->session()->get('agent');
         $agent = $agent[0];
-        $agents = Agent::where(['entreprise' => $agent->entreprise, 'federation' => $agent->federation])->get();
+        $agents = Agent::where(['federation' => $agent->federation])->get();
         return view('admin.federation', ['agent' => $agent, 'membres' => $agents]);
     }
     public function membres_employe(Request $request)
@@ -89,5 +89,23 @@ class AgentController extends Controller
     }
     public function delete_membres_syndicat(Request $request)
     {
+    }
+    public function add_responsable(Request $request)
+    {
+        $agent = $request->session()->get('agent');
+        $agent = $agent[0];
+        if ($request->method() == 'POST') {
+            $inputs = $request->all();
+            $agent = Agent::create([
+                'nom' => $inputs['nom'],
+                'postnom' => $inputs['postnom'],
+                'email' => $inputs['email'],
+                'date' => $inputs['date'],
+                'sexe' => $inputs['sexe'],
+                'fonction' => $inputs['fonction'],
+            ]);
+            return view('admin.add_responsable', ['agent' => $agent, 'result' => true]);
+        }
+        return view('admin.add_responsable', ['agent' => $agent]);
     }
 }
