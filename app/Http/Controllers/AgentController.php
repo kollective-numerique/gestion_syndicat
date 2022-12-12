@@ -25,6 +25,7 @@ class AgentController extends Controller
                 return view('agents.login', ['error_login' => true]);
             }
         }
+        return view('agents.login', ['error_login' => true]);
     }
     public function dashboard(Request $request)
     {
