@@ -32,3 +32,4 @@ Route::get('/syndicats/employe', [AgentController::class, 'membres_employe'])->m
 Route::get('/agent/chnagePsw', [AgentController::class, 'change_pswd'])->middleware('IsLoggedIn')->name('agents.password');
 Route::get('/admin/add', [AgentController::class, 'add_responsable'])->middleware('IsLoggedIn')->name('agents.responsable.add');
 Route::post('/admin/add', [AgentController::class, 'add_responsable'])->middleware('IsLoggedIn')->name('agents.responsable.add.post');
+Route::get('/admin/get', [AgentController::class, 'list_get_admin'])->middleware('IsLoggedIn')->name('agents.responsable.admin');

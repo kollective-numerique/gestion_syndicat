@@ -25,7 +25,9 @@
                 <a class="nav-link" href="{{ route('agents.responsable.add') }}">Ajouter des utilisateurs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Voir la liste des utilisateurs (administrateurs)</a>
+                <a class="nav-link" href="{{ route('agents.responsable.admin') }}">
+                    Voir la liste des utilisateurs
+                </a>
             </li>
         @endif
         <li class="nav-item">

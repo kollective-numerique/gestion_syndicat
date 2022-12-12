@@ -108,4 +108,13 @@ class AgentController extends Controller
         }
         return view('admin.add_responsable', ['agent' => $agent]);
     }
+    public function list_get_admin(Request $request)
+    {
+        $agent = $request->session()->get('agent');
+        $agent = $agent[0];
+        $agents = Agent::where(['fonction' => 'pds'])
+            ->orWhere(['fonction' => 'pdf'])
+            ->orWhere(['fonction' => 'drh'])->get();
+        return view('admin.list_get_admin', ['agent' => $agent, 'membres' => $agents]);
+    }
 }
