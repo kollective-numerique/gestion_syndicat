@@ -103,6 +103,7 @@ class AgentController extends Controller
                 'date' => $inputs['date'],
                 'sexe' => $inputs['sexe'],
                 'fonction' => $inputs['fonction'],
+                'matricule' => 'azert1'
             ]);
             return view('admin.add_responsable', ['agent' => $agent, 'result' => true]);
         }
