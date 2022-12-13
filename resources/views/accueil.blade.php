@@ -3,7 +3,7 @@
 @section('title', 'Accueil')
 
 @section('content')
-    <div style="margin-top: 20px;" class="carousel slide carousel-fade" data-ride="carousel">
+    {{--  <div style="margin-top: 20px;" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="/img/banner.png" alt="First slide">
@@ -17,7 +17,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+    </div> --}}
 
     <div class="jumbotron" style="margin-top: 20px;">
         <h1 class="display-4">Union National des travailleurs du Congo - UNTC</h1>

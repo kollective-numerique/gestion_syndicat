@@ -3,10 +3,17 @@
 @section('title', 'Reglement')
 
 @section('content')
+    @if (isset($error_login))
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="alert alert-danger" role="alert">
+                    Mot de passe incorrect
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row" style="margin-top: 20px;">
-        @if (isset($error_login))
-            <h1>Mot de passe incorrect</h1>
-        @endif
+
         <div class="col-md-6 offset-3">
             <form class="jumbotron" method="POST" action="{{ route('agents.login.post') }}">
                 @csrf

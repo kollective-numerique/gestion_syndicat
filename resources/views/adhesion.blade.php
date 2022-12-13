@@ -3,10 +3,16 @@
 @section('title', 'Adhesion')
 
 @section('content')
+    @if (isset($result))
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="alert alert-danger" role="alert">
+                    Nouvel adhérant ajouté!
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row" style="margin-top: 20px;">
-        @isset($result)
-            <h1>Saved</h1>
-        @endisset
         <div class="col-md-12">
             <form method="POST" action="{{ route('adhesion.save') }}">
                 @csrf
