@@ -7,7 +7,7 @@
             <a class="nav-link active" href="{{ route('accueil') }}">Accueil</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('reglement') }}">Réglement</a>
+            <a class="nav-link" href="{{ route('reglement') }}">Charte</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('adhesion') }}">Adhésion</a>

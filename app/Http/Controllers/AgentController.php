@@ -63,6 +63,17 @@ class AgentController extends Controller
     {
         $agent = $request->session()->get('agent');
         $agent = $agent[0];
+        $data = $request->all();
+        if ($request->method() == 'POST') {
+            $user = Agent::where('email', $data['email'])->firstOrFail();
+            $flag = Hash::check($data['passwd'], $user->password);
+            if ($flag) {
+                $user->password = Hash::make($data['passwd2']);
+                $user->save();
+                return view('admin.change_pswd', ['agent' => $agent, 'notify' => 'Le mot de passe vient d\'être modifié.']);
+            }
+            return view('admin.change_pswd', ['agent' => $agent, 'notify' => 'Les mots de passe ne correspondent pas.']);
+        }
         return view('admin.change_pswd', ['agent' => $agent]);
     }
     public function update_membres_syndicat(Request $request, $id)

@@ -29,7 +29,8 @@ Route::post('/syndicats/membres/update/{id}', [AgentController::class, 'update_m
 Route::get('/syndicats/membres/delete/{id}', [AgentController::class, 'delete_membres_syndicat'])->middleware('IsLoggedIn')->name('agents.syndicat.delete');
 Route::get('/syndicats/federation', [AgentController::class, 'membres_federation'])->middleware('IsLoggedIn')->name('agents.federation');
 Route::get('/syndicats/employe', [AgentController::class, 'membres_employe'])->middleware('IsLoggedIn')->name('agents.employe');
-Route::get('/agent/chnagePsw', [AgentController::class, 'change_pswd'])->middleware('IsLoggedIn')->name('agents.password');
+Route::get('/agent/changePsw', [AgentController::class, 'change_pswd'])->middleware('IsLoggedIn')->name('agents.password');
+Route::post('/agent/changePsw', [AgentController::class, 'change_pswd'])->middleware('IsLoggedIn')->name('agents.password.post');
 Route::get('/admin/add', [AgentController::class, 'add_responsable'])->middleware('IsLoggedIn')->name('agents.responsable.add');
 Route::post('/admin/add', [AgentController::class, 'add_responsable'])->middleware('IsLoggedIn')->name('agents.responsable.add.post');
 Route::get('/admin/get', [AgentController::class, 'list_get_admin'])->middleware('IsLoggedIn')->name('agents.responsable.admin');
