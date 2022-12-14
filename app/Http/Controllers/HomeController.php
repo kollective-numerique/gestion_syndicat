@@ -9,7 +9,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('accueil');
+        $adhesion = Agent::where('fonction', 'adherant')->count();
+        return view('accueil', ['adhesion' => $adhesion]);
     }
     public function reglement()
     {

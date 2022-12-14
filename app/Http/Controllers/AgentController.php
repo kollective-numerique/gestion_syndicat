@@ -30,7 +30,9 @@ class AgentController extends Controller
     public function dashboard(Request $request)
     {
         $agent = $request->session()->get('agent');
-        return view('admin.dashboard', ['agent' => $agent[0]]);
+        $agent = $agent[0];
+        $agents = Agent::where(['entreprise' => $agent->entreprise])->count();
+        return view('admin.dashboard', ['agent' => $agent, 'nbrAgent' => $agents]);
     }
     public function logout(Request $request)
     {
@@ -99,8 +101,10 @@ class AgentController extends Controller
         }
         return view('admin.update_syndicat', ['agent' => $agent, 'agentToUpdate' => $agent_to_update]);
     }
-    public function delete_membres_syndicat(Request $request)
+    public function delete_membres_syndicat(Request $request, $id)
     {
+        $res = Agent::find($id)->delete();
+        return redirect()->route('agents.syndicat');
     }
     public function add_responsable(Request $request)
     {

@@ -3,10 +3,16 @@
 @section('title', 'Update Adhesion')
 
 @section('content')
+    @isset($notify)
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="alert alert-danger" role="alert">
+                    Modifié
+                </div>
+            </div>
+        </div>
+    @endisset
     <div class="row" style="margin-top: 20px;">
-        @isset($notify)
-            <h1>Updated</h1>
-        @endisset
         <div class="col-md-12">
             <form method="POST" action="{{ route('agents.syndicat.update', $agentToUpdate->id) }}">
                 @csrf
